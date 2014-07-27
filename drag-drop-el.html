@@ -1,0 +1,60 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+Element providing solution to no problem in particular.
+
+##### Example
+
+    <li is="drag-drop-el"></li>
+
+@element drag-drop-el
+@blurb Element providing solution to no problem in particular.
+@status alpha
+@homepage http://wenqer.github.io/drag-drop-el
+-->
+<polymer-element name="drag-drop-el" draggable="true" on-dragstart="{{ handleDragStart }}"
+            on-drop="{{ handleDrop }}"
+            on-dragover="{{ handleDragOver }}" extends="li">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <content></content>
+  </template>
+  <script>
+    var dragSrcEl = null;
+    Polymer({
+      handleDragOver: function(e) {
+        if (e.preventDefault) {
+          e.preventDefault(); // Necessary. Allows us to drop.
+        }
+
+        e.dataTransfer.dropEffect = 'move';  // See the section on the DataTransfer object.
+
+        return false;
+      },
+      handleDragStart: function(e, d, el) {
+        dragSrcEl = el;
+
+        e.dataTransfer.effectAllowed = 'move';
+        e.dataTransfer.setData('text/html', el.innerHTML);
+      },
+      handleDrop: function(e, d, el) {
+        if (e.stopPropagation) {
+          e.stopPropagation(); // Stops some browsers from redirecting.
+        }
+
+        // Don't do anything if dropping the same column we're dragging.
+        if (dragSrcEl != el) {
+          // Set the source column's HTML to the HTML of the column we dropped on.
+          dragSrcEl.innerHTML = el.innerHTML;
+          el.innerHTML = e.dataTransfer.getData('text/html');
+        }
+
+        return false;
+      }
+    });
+  </script>
+</polymer-element>
