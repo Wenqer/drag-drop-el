@@ -1,9 +1,7 @@
 {
-  "name": "drag-drop-el",
-  "version": "0.0.1",
-  "keywords": "seed, polymer, web-components",
-  "main": "drag-drop-el.html",
+  "name": "drag-drop-el#gh-pages",
+  "private": true,
   "dependencies": {
-    "polymer": "Polymer/polymer#~0.3.1"
+    "drag-drop-el": "Wenqer/drag-drop-el#master"
   }
 }

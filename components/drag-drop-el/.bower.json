@@ -1,0 +1,18 @@
+{
+  "name": "drag-drop-el",
+  "keywords": "seed, polymer, web-components",
+  "main": "drag-drop-el.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.3.1"
+  },
+  "homepage": "https://github.com/Wenqer/drag-drop-el",
+  "_release": "cb3fde06d6",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "cb3fde06d61fafd1f8e7a38f66a8ee4f4b23ac0b"
+  },
+  "_source": "git://github.com/Wenqer/drag-drop-el.git",
+  "_target": "master",
+  "_originalSource": "Wenqer/drag-drop-el"
+}
